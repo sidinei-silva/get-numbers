@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cjtdaf8asmf4f"]
+
+[ext_resource type="Texture2D" uid="uid://0mkuy1cvrhj" path="res://assets/crianca.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://b4ihvwi0y47bp" path="res://character_body_2d.gd" id="1_onrkg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtpsm"]
+radius = 85.0
+height = 262.0
+
+[node name="Player" type="Node2D" unique_id=701390034]
+position = Vector2(0, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1655050481]
+position = Vector2(86, 1151)
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1091361262]
+scale = Vector2(0.43502825, 0.43502823)
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1520919815]
+shape = SubResource("CapsuleShape2D_dtpsm")
