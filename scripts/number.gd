@@ -16,8 +16,6 @@ var numbers_assets = {
 	"9": preload("res://assets/numbers/9.png")
 }
 
-var target_velocity := Vector2(0, 200)
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

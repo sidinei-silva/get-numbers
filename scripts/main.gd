@@ -27,9 +27,6 @@ func new_game():
 func _on_start_timer_timeout() -> void:
 	$NumberTimer.start()
 
-func _on_score_timer_timeout() -> void:
-	pass # Replace with function body.
-
 func _on_number_timer_timeout() -> void:
 	# Criar instancia
 	var number_instance = number_scene.instantiate()
