@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0mkuy1cvrhj"
-path="res://.godot/imported/crianca.png-37025f2efe92643de58baa7bc5e0fb2d.ctex"
+uid="uid://bu4j8vr2he82t"
+path="res://.godot/imported/cesta.png-48a08cbe7f6b781c57396237f84fb066.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/crianca.png"
-dest_files=["res://.godot/imported/crianca.png-37025f2efe92643de58baa7bc5e0fb2d.ctex"]
+source_file="res://assets/cesta.png"
+dest_files=["res://.godot/imported/cesta.png-48a08cbe7f6b781c57396237f84fb066.ctex"]
 
 [params]
 

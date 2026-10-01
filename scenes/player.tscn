@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dcok0tlgikya6"]
 
-[ext_resource type="Texture2D" uid="uid://wq55n8yy75ko" path="res://assets/crianca.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://0mkuy1cvrhj" path="res://assets/crianca.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cc7c0iac6mfsn" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bu4j8vr2he82t" path="res://assets/cesta.png" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4amdh"]
 size = Vector2(162, 65)
@@ -10,10 +11,17 @@ size = Vector2(162, 65)
 script = ExtResource("1_g2els")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1411685864]
+[node name="Criança" type="Sprite2D" parent="." unique_id=1411685864]
 position = Vector2(1, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_3vyb7")
+
+[node name="Cesta" type="Sprite2D" parent="." unique_id=1043430034]
+visibility_layer = 7
+z_index = 1
+position = Vector2(-3, 37)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=738157990]
 position = Vector2(-3, 37.5)
