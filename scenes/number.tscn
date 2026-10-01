@@ -6,9 +6,8 @@
 radius = 54.0
 height = 140.0
 
-[node name="Number" type="RigidBody2D" unique_id=1204737431]
+[node name="Number" type="Area2D" unique_id=990358376]
 collision_mask = 0
-gravity_scale = 0.0
 script = ExtResource("1_y3ou6")
 metadata/_edit_group_ = true
 

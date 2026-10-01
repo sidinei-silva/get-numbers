@@ -27,8 +27,8 @@ func _process(delta: float) -> void:
 	var half_width = get_node("CollisionShape2D").shape.get_rect().size.x / 2
 	position.x = clamp(position.x, half_width, screen_size.x - half_width)
 
-func _on_body_entered(body: Node2D) -> void:
-	var number: int = body.number
+func _on_area_entered(area: Area2D) -> void:
+	var number: int = area.number
 	hit.emit(number)
 	# $CollisionShape2D.set_deferred("disabled", true)
 
