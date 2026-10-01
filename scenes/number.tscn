@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://di7t1a5hw3evt"]
+
+[ext_resource type="Script" uid="uid://ekloygikoat8" path="res://scripts/number.gd" id="1_y3ou6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtpsm"]
+radius = 54.0
+height = 140.0
+
+[node name="Number" type="RigidBody2D" unique_id=1204737431]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_y3ou6")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1907981412]
+scale = Vector2(0.2, 0.2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1091294880]
+shape = SubResource("CapsuleShape2D_dtpsm")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=864799142]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
