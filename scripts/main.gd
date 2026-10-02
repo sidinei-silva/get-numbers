@@ -36,5 +36,5 @@ func _on_number_timer_timeout() -> void:
 	var random_x = randf_range(number_half_width, screen_size.x - number_half_width)
 	number_instance.position.x = random_x
 	
-	# Spawnando o numero na cena
+	# Adicionando o número à cena
 	add_child(number_instance)

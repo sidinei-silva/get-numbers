@@ -28,9 +28,41 @@ func _process(delta: float) -> void:
 	position.x = clamp(position.x, half_width, screen_size.x - half_width)
 
 func _on_area_entered(area: Area2D) -> void:
-	var number: int = area.number
+	$Cesta.z_index = 0
+	if not area.has_method("capture"):
+		return
+
+	# Borda superior da cesta
+	var basket_shape = $CollisionShape2D
+	var basket_rect = basket_shape.shape.get_rect()
+	var basket_top = basket_shape.to_global(
+		Vector2(0, basket_rect.position.y)
+	).y
+
+	# Borda inferior do número
+	var number_shape = area.get_node("CollisionShape2D")
+	var number_rect = number_shape.shape.get_rect()
+
+	var current_bottom = number_shape.to_global(
+		Vector2(0, number_rect.end.y)
+	).y
+
+	var bottom_offset = current_bottom - area.global_position.y
+	var previous_bottom = area.previous_y + bottom_offset
+
+	# Só captura quando a parte inferior atravessa a borda.
+	if previous_bottom >= basket_top:
+		return
+
+	if current_bottom < basket_top:
+		return
+
+
+	$Cesta.z_index = area.z_index + 1
+	var number = area.number
 	hit.emit(number)
-	# $CollisionShape2D.set_deferred("disabled", true)
+	area.capture(global_position)
+
 
 
 func start(pos):
