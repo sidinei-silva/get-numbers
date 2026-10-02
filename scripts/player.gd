@@ -7,7 +7,8 @@ var screen_size: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	screen_size = get_viewport_rect().size
+	screen_size = get_viewport().size
+	print("Screen size: %s" % screen_size)
 	hide()  # Hide the player at the start of the game
 
 
@@ -28,7 +29,6 @@ func _process(delta: float) -> void:
 	position.x = clamp(position.x, half_width, screen_size.x - half_width)
 
 func _on_area_entered(area: Area2D) -> void:
-	$Cesta.z_index = 0
 	if not area.has_method("capture"):
 		return
 
@@ -71,4 +71,4 @@ func start(pos):
 	$CollisionShape2D.disabled = false
 
 func stop():
-	queue_free()
+	hide()

@@ -79,6 +79,7 @@ func _on_start_timer_timeout() -> void:
 func _on_number_timer_timeout() -> void:
 	# Criar instancia
 	var number_instance = number_scene.instantiate()
+	number_instance.add_to_group("numbers")
 	var number_half_width = number_instance.get_node("CollisionShape2D").shape.get_rect().size.x / 2
 	var random_x = randf_range(number_half_width, screen_size.x - number_half_width)
 	number_instance.position.x = random_x

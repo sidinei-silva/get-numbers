@@ -5,24 +5,25 @@ var number: int
 
 var previous_y: float
 
-var numbers_assets = {
-	0: preload("res://assets/numbers/0.png"),
-	1: preload("res://assets/numbers/1.png"),
-	2: preload("res://assets/numbers/2.png"),
-	3: preload("res://assets/numbers/3.png"),
-	4: preload("res://assets/numbers/4.png"),
-	5: preload("res://assets/numbers/5.png"),
-	6: preload("res://assets/numbers/6.png"),
-	7: preload("res://assets/numbers/7.png"),
-	8: preload("res://assets/numbers/8.png"),
-	9: preload("res://assets/numbers/9.png")
-}
+var numbers_assets = [
+	preload("res://assets/numbers/0.png"),
+	preload("res://assets/numbers/1.png"),
+	preload("res://assets/numbers/2.png"),
+	preload("res://assets/numbers/3.png"),
+	preload("res://assets/numbers/4.png"),
+	preload("res://assets/numbers/5.png"),
+	preload("res://assets/numbers/6.png"),
+	preload("res://assets/numbers/7.png"),
+	preload("res://assets/numbers/8.png"),
+	preload("res://assets/numbers/9.png")
+]
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	choose_random_number()
 	previous_y = global_position.y
+	z_index = 0
 
 
 
@@ -34,14 +35,12 @@ func _physics_process(delta: float) -> void:
 
 func choose_random_number() -> void:
 	var random_index = randi() % numbers_assets.size()
-	var random_key = numbers_assets.keys()[random_index]
-	number = int(random_key)
 
-	if !numbers_assets.has(number):
-		push_error("No texture found for number: %s" % number)
+	if !numbers_assets[random_index]:
+		push_error("No texture found for number: %s" % random_index)
 		return
 
-	var texture = numbers_assets[number]
+	var texture = numbers_assets[random_index]
 	$Sprite2D.texture = texture
 	
 
@@ -50,7 +49,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func capture(target_position: Vector2) -> void:
 	# Impede que o número seja capturado novamente
-	set_process(false)
+	set_physics_process(false)
 	set_deferred("monitoring", false)
 	set_deferred("monitorable", false)
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -74,3 +73,6 @@ func capture(target_position: Vector2) -> void:
 	)
 
 	tween.chain().tween_callback(queue_free)
+
+func remove_from_scene() -> void:
+	queue_free()

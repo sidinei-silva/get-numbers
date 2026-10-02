@@ -22,6 +22,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
 
+[global_group]
+
+numbers=""
+
 [input]
 
 move_left={
